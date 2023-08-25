@@ -21,7 +21,7 @@ from src.common.logger import (
 )
 from src.common.metrics import rmse_cv_score
 from src.common.utils import get_param_set
-from src.preprocess import preprocess_pipeline
+#from src.preprocess import preprocess_pipeline
 
 # 로그 들어갈 위치
 # 로그를 정해진 로그 경로에 logs.log로 저장하도록 설정
@@ -35,12 +35,8 @@ if __name__ == "__main__":
     logger.info("Loading data...")
     train_df = pd.read_csv(os.path.join(DATA_PATH, "bike_sharing_train.csv"))
 
-    _X = train_df
+    X = train_df.drop(["count", "datetime"], axis=1)
     y = np.log1p(train_df["count"])
-
-    # X=_X, y=y로 전처리 파이프라인을 적용해 X에 저장
-    logger.info("Applying a pipeline...")
-    X = preprocess_pipeline.fit_transform(X=_X, y=y)
 
     # Data storage - 피처 데이터 저장
     logger.info("Saving a feature data...")
@@ -73,9 +69,9 @@ if __name__ == "__main__":
             # 전처리 이후 모델 순서로 파이프라인 작성
             pipeline = Pipeline(
                 # 전처리 파이프라인와 모델을 파이프라인으로 묶을 것
-                [("preprocessor", preprocess_pipeline), ("Regressor", regr)]
+                [("Regressor", regr)]
             )
-            pipeline.fit(_X, y)
+            pipeline.fit(X, y)
 
             # get evaluations scores
             score_cv = rmse_cv_score(regr, X, y)

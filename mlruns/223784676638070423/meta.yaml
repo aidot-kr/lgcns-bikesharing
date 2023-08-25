@@ -1,0 +1,6 @@
+artifact_location: file:///workspaces/lgcns-bikesharing/mlruns/223784676638070423
+creation_time: 1692944746223
+experiment_id: '223784676638070423'
+last_update_time: 1692944746223
+lifecycle_stage: active
+name: new_experiment_with_logs

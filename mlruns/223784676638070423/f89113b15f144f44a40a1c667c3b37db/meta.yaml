@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/lgcns-bikesharing/mlruns/223784676638070423/f89113b15f144f44a40a1c667c3b37db/artifacts
+end_time: 1692944922256
+entry_point_name: ''
+experiment_id: '223784676638070423'
+lifecycle_stage: active
+run_id: f89113b15f144f44a40a1c667c3b37db
+run_name: Run 46
+run_uuid: f89113b15f144f44a40a1c667c3b37db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692944918500
+status: 3
+tags: []
+user_id: codespace
